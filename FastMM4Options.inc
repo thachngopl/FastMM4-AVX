@@ -210,7 +210,7 @@ number of threads is the same or greater than the number of physical cores}
    stack for valid return addresses. Note that this is significantly slower
    than using the stack frame tracing method, but is usually more complete. Has
    no effect unless FullDebugMode is enabled}
-  {$define RawStackTraces}
+  {.$define RawStackTraces}
 
   {Set this option to check for user code that uses an interface of a freed
    object. Note that this will disable the checking of blocks modified after
@@ -320,6 +320,13 @@ Combine it with the two options below for further fine-tuning.}
   {Set this option to disable the display of the hint below the memory leak
    message.}
   {.$define HideMemoryLeakHintMessage}
+
+  {Set this option to use QualifiedClassName equivalent instead of ClassName
+   equivalent during memory leak reporting.
+   This is useful for duplicate class names (like EConversionError, which is in
+   units Data.DBXJSONReflect, REST.JsonReflect and System.ConvUtils,
+   or TClipboard being in Vcl.Clibprd and WinAPI.ApplicationModel.DataTransfer }
+  {$define EnableMemoryLeakReportingUsesQualifiedClassName}
 
 {--------------------------Instruction Set Options----------------------------}
 
